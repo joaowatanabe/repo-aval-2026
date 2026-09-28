@@ -1,4 +1,4 @@
-import { MEDIA_APROVACAO, MEDIA_RECUPERACAO, NOTA_MAXIMA, NOTA_MINIMA } from './config.js';
+import { MEDIA_APROVACAO, MEDIA_RECUPERACAO, NOTA_MAXIMA, NOTA_MINIMA, MEDIA_DISTINCAO } from './config.js';
 
 /**
  * Indica se o valor é uma nota válida: um número entre NOTA_MINIMA e NOTA_MAXIMA.
@@ -49,6 +49,10 @@ export function obterSituacao(media) {
 
   if (media >= MEDIA_RECUPERACAO) {
     return 'Recuperação';
+  }
+
+  if (media >= MEDIA_DISTINCAO) {
+    return 'Aprovado com distinção';
   }
 
   return 'Reprovado';
