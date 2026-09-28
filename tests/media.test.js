@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, test } from 'node:test';
-import { calcularMedia, obterSituacao } from '../src/media.js';
+import { calcularMedia, obterSituacao, formatarMedia } from '../src/media.js';
 
 describe('calcularMedia', () => {
   test('retorna a própria nota quando há apenas uma', () => {
@@ -50,7 +50,7 @@ describe('obterSituacao', () => {
     assert.equal(obterSituacao(7), 'Aprovado');
   });
 
-    test('retorna "Aprovado com distinção" para média igual a 9', () => {
+  test('retorna "Aprovado com distinção" para média igual a 9', () => {
     assert.equal(obterSituacao(9), 'Aprovado com distinção');
   });
 
@@ -72,5 +72,14 @@ describe('obterSituacao', () => {
 
   test('retorna "Reprovado" para média abaixo de 5', () => {
     assert.equal(obterSituacao(4.9), 'Reprovado');
+  });
+});
+
+describe('formatarMedia', () => {
+  test('formata a média para uma casa decimal com vírgula', () => {
+    assert.equal(formatarMedia(7.666666666666667), '7,7');
+    assert.equal(formatarMedia(7), '7,0');
+    assert.equal(formatarMedia(10), '10,0');
+    assert.equal(formatarMedia(5.25), '5,3');
   });
 });

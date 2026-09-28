@@ -57,3 +57,13 @@ export function obterSituacao(media) {
 
   return 'Reprovado';
 }
+
+/**
+ * Formata a média para exibir com uma casa decimal e vírgula.
+ *
+ * @param {number} media
+ * @returns {string}
+ */
+export function formatarMedia(media) {
+  return media.toFixed(1).replace('.', ',');
+} 
