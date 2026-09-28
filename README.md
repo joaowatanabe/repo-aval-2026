@@ -14,10 +14,11 @@ Conventional Commits, merges, resolução de conflitos, versionamento e Pull Req
 
 > Preenchida pela equipe na [TAREFA-01](TAREFAS.md#tarefa-01--integrantes-da-equipe).
 
-**Nome da equipe:**
+**Nome da equipe:** Merge Masters
 
 | Nome | Usuário do GitHub |
 | ---- | ----------------- |
+| João Vicente Watanabe | @joaowatanabe |
 
 ## Sumário
 
