@@ -17,17 +17,21 @@ export function ehNotaValida(nota) {
  * @returns {number}
  */
 export function calcularMedia(notas) {
+  // Mantém a validação inicial exatamente igual
   if (!Array.isArray(notas) || notas.length === 0) {
     throw new Error('Informe ao menos uma nota.');
   }
 
-  let soma = 0;
-  for (let i = 0; i < notas.length; i++) {
-    if (!ehNotaValida(notas[i])) {
-      throw new Error(`Nota inválida: ${notas[i]}. Use valores entre ${NOTA_MINIMA} e ${NOTA_MAXIMA}.`);
-    }
-    soma = soma + notas[i];
+  // Usa findIndex para achar a POSIÇÃO da primeira nota inválida
+  const indiceInvalido = notas.findIndex(nota => !ehNotaValida(nota));
+
+  // Se encontrou algo (índice diferente de -1), dispara o erro idêntico ao original
+  if (indiceInvalido !== -1) {
+    throw new Error(`Nota inválida: ${notas[indiceInvalido]}. Use valores entre ${NOTA_MINIMA} e ${NOTA_MAXIMA}.`);
   }
+
+  // Usa reduce para somar todas as notas
+  const soma = notas.reduce((acc, nota) => acc + nota, 0);
 
   return soma / notas.length;
 }
