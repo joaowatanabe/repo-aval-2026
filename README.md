@@ -21,6 +21,7 @@ Conventional Commits, merges, resolução de conflitos, versionamento e Pull Req
 | João Vicente Watanabe | @joaowatanabe |
 | Juliano Pastorini Amaral | @julianopastorini |
 | Lucas Campello Cardozo | @LucasCampeIlo |
+| Anderson Tavares Avila | @andersonavila099 |
 
 ## Sumário
 
