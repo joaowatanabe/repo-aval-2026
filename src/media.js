@@ -40,19 +40,19 @@ export function calcularMedia(notas) {
  * Retorna a situação do aluno de acordo com a média.
  *
  * @param {number} media
- * @returns {string} "Aprovado", "Recuperação" ou "Reprovado"
+ * @returns {string} "Aprovado com distinção", "Aprovado", "Recuperação" ou "Reprovado"
  */
 export function obterSituacao(media) {
+  if (media >= MEDIA_DISTINCAO) {
+    return 'Aprovado com distinção';
+  }
+
   if (media >= MEDIA_APROVACAO) {
     return 'Aprovado';
   }
 
   if (media >= MEDIA_RECUPERACAO) {
     return 'Recuperação';
-  }
-
-  if (media >= MEDIA_DISTINCAO) {
-    return 'Aprovado com distinção';
   }
 
   return 'Reprovado';
