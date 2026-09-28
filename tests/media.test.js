@@ -18,6 +18,27 @@ describe('calcularMedia', () => {
   test('lança erro quando nenhuma nota é informada', () => {
     assert.throws(() => calcularMedia([]), /Informe ao menos uma nota/);
   });
+
+  test('deve lançar erro para nota negativa', () => {
+    assert.throws(() => calcularMedia([-1]), /Nota inválida/);
+  });
+
+  test('deve lançar erro para nota maior que 10', () => {
+    assert.throws(() => calcularMedia([11]), /Nota inválida/);
+  });
+
+  test('deve lançar erro para NaN', () => {
+    assert.throws(() => calcularMedia([NaN]), /Nota inválida/);
+  });
+
+  test('deve lançar erro para nota em formato de texto', () => {
+    assert.throws(() => calcularMedia(['8']), /Nota inválida/);
+  });
+
+  test('deve aceitar as notas 0 e 10', () => {
+    const media = calcularMedia([0, 10]);
+    assert.strictEqual(media, 5);
+  });
 });
 
 describe('obterSituacao', () => {
@@ -27,6 +48,18 @@ describe('obterSituacao', () => {
 
   test('retorna "Aprovado" para média igual a 7', () => {
     assert.equal(obterSituacao(7), 'Aprovado');
+  });
+
+  test('retorna "Aprovado com distinção" para média igual a 9', () => {
+    assert.equal(obterSituacao(9), 'Aprovado com distinção');
+  });
+
+  test('retorna "Aprovado com distinção" para média igual a 10', () => {
+    assert.equal(obterSituacao(10), 'Aprovado com distinção');
+  });
+
+  test('retorna "Aprovado" para média igual a 8.9', () => {
+    assert.equal(obterSituacao(8.9), 'Aprovado');
   });
 
   test('retorna "Recuperação" para média entre 5 e 7', () => {
