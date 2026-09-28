@@ -19,6 +19,7 @@ Conventional Commits, merges, resolução de conflitos, versionamento e Pull Req
 | Nome | Usuário do GitHub |
 | ---- | ----------------- |
 | João Vicente Watanabe | @joaowatanabe |
+| Juliano Pastorini Amaral | @julianopastorini |
 
 ## Sumário
 
